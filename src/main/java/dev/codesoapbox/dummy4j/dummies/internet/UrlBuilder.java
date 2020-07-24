@@ -61,7 +61,7 @@ public final class UrlBuilder {
             url = new URL(url.getProtocol(), url.getHost(), path.toString());
         }
 
-        if(withProtocol) {
+        if (withProtocol) {
             url = new URL(protocol, url.getHost(), url.getFile());
         }
 
@@ -98,9 +98,13 @@ public final class UrlBuilder {
                 String withoutExtension = originalFile.substring(0, originalFile.length() - 5);
                 String file = withoutExtension.concat(dummy4j.lorem().characters(60));
                 url = new URL(url.getProtocol(), url.getHost(), file + ".html");
-            } else {
+            } else if (withQueryParams) {
                 String file = originalFile.concat(dummy4j.lorem().characters(60));
                 url = new URL(url.getProtocol(), url.getHost(), file);
+            } else {
+                String[] hostParts = url.getHost().split("\\.");
+                String host = hostParts[0].concat(dummy4j.lorem().characters(60)) + "." + hostParts[1];
+                url = new URL(url.getProtocol(), host, url.getFile());
             }
         }
         return url;

@@ -224,4 +224,19 @@ class UrlBuilderTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    void shouldReturnUrlWithSpecifiedProtocolAndMinimumLength() throws MalformedURLException {
+        URL expected = new URL("https", "test" + SIXTY_CHARS + ".dev", "");
+        mockSimpleUrl();
+        when(loremDummy.characters(60))
+                .thenReturn(SIXTY_CHARS);
+
+        URL actual = builder
+                .withProtocol("https")
+                .minLength(60)
+                .build();
+
+        assertEquals(expected, actual);
+    }
 }
