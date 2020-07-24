@@ -1,0 +1,25 @@
+en:
+  internet:
+    special-char: [
+      '!', '@', '#', '$', '%', '^', '&', '*', '_', '-'
+    ]
+    protocol: [
+      "http", "https"
+    ]
+    popular_domain: [
+      "app", "co", "com", "dev", "io", "net", "org"
+    ]
+    country_domain: [
+      "ag", "am", "asia", "at", "be", "bz", "ca", "cc", "co", "cz", "de", "es", "eu", "fm", "fr", "gs", "in", "it",
+      "jp","kr", "la", "ms", "mx", "nl", "se", "so", "tk", "tv", "tw", "uk", "us"
+    ]
+    generic_domain: [
+      "academy", "agency", "business", "biz", "blog", "club", "dance", "dating", "design", "events", "farm", "flights",
+      "global", "guru", "info", "life", "luxury", "me", "media", "news", "online", "photography", "rocks", "science",
+      "sex", "site", "solutions", "space", "tech", "today", "world"
+    ]
+    domain: [
+      "#{internet.popular_domain}",
+      "#{internet.country_domain}",
+      "#{internet.generic_domain}"
+    ]
